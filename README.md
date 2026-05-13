@@ -13,9 +13,9 @@
 
 Soy un **Data Scientist mid-level** con 2-4 años de experiencia diseñando soluciones de Machine Learning y Deep Learning para problemas reales de negocio. Me especializo en llevar proyectos desde la exploración de datos hasta el despliegue en producción, con énfasis en reproducibilidad, calidad de código y comunicación de resultados.
 
-- Experiencia en industrias: **Finanzas, Salud, Energía**
-- Apasionado por la intersección entre estadística rigurosa e ingeniería de software
-- Contacto: [zebas.sr@gmail.com](mailto:zebas.sr@gmail.com) · [LinkedIn](#) · [GitHub](#)
+- Experiencia en industrias: **Fintech, Finanzas, Salud, Energía**
+- Apasionado por la intersección entre estadística rigurosa, econometría e ingeniería de software
+- Contacto: [juan.ssr@hotmail.com](mailto:juan.ssr@hotmail.com) · [LinkedIn](https://www.linkedin.com/in/juan-sebastian-segura-abi/) · [GitHub](https://github.com/jusero1)
 
 ---
 
