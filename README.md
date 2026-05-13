@@ -4,16 +4,24 @@
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?logo=tensorflow&logoColor=white)](https://tensorflow.org)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)](https://docker.com)
-[![CI](https://github.com/tu-usuario/Sebas-Data_Science_Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/tu-usuario/Sebas-Data_Science_Portfolio/actions/workflows/ci.yml)
+[![CI](https://github.com/jusero1/Sebas-Data_Science_Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/jusero1/Sebas-Data_Science_Portfolio/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
 ## Sobre mí
 
-Soy un **Data Scientist mid-level** con 2-4 años de experiencia diseñando soluciones de Machine Learning y Deep Learning para problemas reales de negocio. Me especializo en llevar proyectos desde la exploración de datos hasta el despliegue en producción, con énfasis en reproducibilidad, calidad de código y comunicación de resultados.
+Cientifico de Datos especializado en Riesgo de Crédito y Estrategias de Recuperación, con base en Economía y más de 4 años de experiencia en el sector Fintech y E-commerce. Transformo datos de cartera, comportamiento transaccional y métricas de producto en decisiones accionables que reducen la morosidad, optimizan la cobranza y mejoran la retención de clientes.
 
-- Experiencia en industrias: **Fintech, Finanzas, Salud, Energía**
+Actualmente enfocado en:
+
+📉 Riesgo de Crédito y Cobranza Analítica: modelos de scoring, segmentación de mora, roll rates, cure rate, automatización de estrategias de contacto.
+
+🧪 Product Analytics Financiero: análisis de funnels de onboarding, activación y retención en productos de crédito y cuenta digital.
+
+📊 Business Intelligence para C-Level: dashboards ejecutivos en Power BI, KPIs financieros, reporting automatizado.
+
+- Experiencia en industrias: **Fintech (préstamos, pagos digitales), E-commerce, Banca.**
 - Apasionado por la intersección entre estadística rigurosa, econometría e ingeniería de software
 - Contacto: [juan.ssr@hotmail.com](mailto:juan.ssr@hotmail.com) · [LinkedIn](https://www.linkedin.com/in/juan-sebastian-segura-abi/) · [GitHub](https://github.com/jusero1)
 
