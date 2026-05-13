@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .pre-commit-config.yaml
+#
+# Instala hooks con:
+#   pip install pre-commit
+#   pre-commit install
+#
+# Ejecuta manualmente sobre todos los archivos:
+#   pre-commit run --all-files
+# ─────────────────────────────────────────────────────────────────────────────
+
+repos:
+  # ── Hooks genéricos de saneamiento ─────────────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace          # Elimina espacios al final de línea
+      - id: end-of-file-fixer            # Asegura newline al final de fichero
+      - id: check-yaml                   # Valida sintaxis YAML
+      - id: check-json                   # Valida sintaxis JSON
+      - id: check-toml                   # Valida sintaxis TOML
+      - id: check-merge-conflict         # Detecta marcadores <<< >>> de merge
+      - id: check-added-large-files      # Bloquea archivos > 500 KB
+        args: ["--maxkb=500"]
+      - id: detect-private-key           # Detecta claves privadas (RSA, PEM, etc.)
+      - id: debug-statements             # Detecta breakpoint() y pdb.set_trace()
+      - id: check-case-conflict          # Evita conflictos de mayúsculas en paths
+      - id: mixed-line-ending            # Normaliza CRLF a LF
+        args: ["--fix=lf"]
+
+  # ── Limpiar outputs de notebooks Jupyter ────────────────────────────────────
+  # IMPORTANTE: Los notebooks se almacenan SIN outputs en el repositorio.
+  # Esto evita filtrar datos sensibles, tokens de acceso o rutas internas.
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.7.1
+    hooks:
+      - id: nbstripout
+        files: \.ipynb$
+
+  # ── Formateo de código: black ───────────────────────────────────────────────
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        language_version: python3.11
+        args: ["--line-length=100"]
+
+  # ── Linting y autofix: ruff ─────────────────────────────────────────────────
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        args: ["--fix", "--line-length=100"]
+      - id: ruff-format
+        args: ["--line-length=100"]
+
+  # ── Seguridad estática: detect-secrets ──────────────────────────────────────
+  # Detecta posibles secretos (contraseñas, tokens, API keys) antes de commitear
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ["--baseline", ".secrets.baseline"]
+        exclude: \.env\.example$   # Permite .env.example con placeholders
+
+  # ── Type checking: mypy (opcional, activa si quieres checking estricto) ──────
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: v1.10.0
+  #   hooks:
+  #     - id: mypy
+  #       additional_dependencies:
+  #         - pydantic>=2.7
+  #         - types-requests
+  #       args: ["--ignore-missing-imports", "--no-strict-optional"]

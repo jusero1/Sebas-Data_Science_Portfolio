@@ -1,0 +1,60 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .dockerignore — computer-vision-classification
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Secretos
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Datos de imágenes (volumen externo — pueden ser decenas de GB)
+data/
+
+# Modelos (se montan como volumen en producción)
+models/
+
+# Notebooks
+notebooks/
+
+# Tests
+tests/
+
+# Control de versiones
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# MLflow artifacts
+mlruns/
+mlartifacts/
+
+# IDE y OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Documentación
+*.md
+docs/
+
+# Configuración de desarrollo
+.pre-commit-config.yaml
+pyproject.toml

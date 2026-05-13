@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .dockerignore — Archivos excluidos del contexto de build de Docker
+#
+# Reduce el tamaño del contexto y evita copiar archivos sensibles al contenedor.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Secretos — NUNCA deben entrar al contenedor
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+secrets/
+
+# Datos de entrenamiento (grandes — se montan como volumen)
+data/
+
+# Modelos entrenados (grandes — se montan como volumen en producción)
+# Comenta estas líneas si quieres incluir modelos en la imagen
+models/
+
+# Notebooks (no son necesarios en runtime)
+notebooks/
+
+# Tests (no se ejecutan dentro del contenedor de producción)
+tests/
+
+# Control de versiones
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# MLflow artifacts (grandes)
+mlruns/
+mlartifacts/
+
+# IDE y OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Documentación (no necesaria en runtime)
+*.md
+docs/
+
+# Configuración de desarrollo (solo local)
+.pre-commit-config.yaml
+pyproject.toml
+setup.cfg

@@ -1,4 +1,21 @@
-# Python
+# ─────────────────────────────────────────────────────────────────────────────
+# .gitignore — Sebas Data Science Portfolio
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── SECRETOS — NUNCA deben entrar al repositorio ──────────────────────────────
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+# Solo .env.example SÍ se versiona (contiene placeholders, no valores reales)
+!.env.example
+
+# ── Python ───────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *.pyo
@@ -9,57 +26,83 @@ dist/
 build/
 *.egg
 .eggs/
+*.so
 
-# Virtual environments
+# ── Virtual environments ──────────────────────────────────────────────────────
 .venv/
 venv/
 env/
 ENV/
-.env
+.env/   # Por si alguien nombra su venv ".env"
 
-# Jupyter
+# ── Jupyter Notebooks ─────────────────────────────────────────────────────────
 .ipynb_checkpoints/
-*.ipynb_checkpoints
+# Los outputs de notebooks se limpian con nbstripout (ver .pre-commit-config.yaml)
 
-# Data (large files — use DVC or store externally)
+# ── Datos de entrenamiento (demasiado grandes para Git) ───────────────────────
+# Usa DVC (https://dvc.org) o almacenamiento externo para datasets
 data/raw/
 data/processed/
 *.csv
-*.txt
+*.parquet
+*.feather
+*.h5          # Datasets HDF5 (los modelos .h5 se manejan aparte)
 *.zip
 *.tar.gz
+*.gz
 
-# Models (large files — store in cloud storage or use Git LFS)
-models/*.h5
+# ── Modelos entrenados (grandes — almacena en cloud o usa Git LFS) ────────────
+# Descomenta si quieres usar Git LFS: git lfs track "*.joblib"
 models/*.joblib
 models/*.pkl
+models/*.h5
 models/*.bin
-models/clustering_pca.joblib
-models/clustering_scaler.joblib
+models/*.onnx
+models/*.pt
+models/*.pth
 
-# MLflow
+# ── MLflow ───────────────────────────────────────────────────────────────────
 mlruns/
 mlartifacts/
 
-# Reports (generated)
+# ── Reports generados ────────────────────────────────────────────────────────
 reports/*.png
 reports/*.html
+reports/*.pdf
 
-# OS
-.DS_Store
-Thumbs.db
+# ── Testing y cobertura ───────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.coveragerc
 
-# IDE
+# ── Type checking ────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+
+# ── Docker ───────────────────────────────────────────────────────────────────
+# Los .dockerignore sí se versionan (definen qué no va al contexto de build)
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-workspace
+*.sublime-project
 
-# Testing / coverage
-.pytest_cache/
-.coverage
-htmlcov/
-coverage.xml
+# ── Sistemas operativos ───────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
 
-# Docker
-.dockerignore
+# ── detect-secrets baseline (SÍ se versiona) ─────────────────────────────────
+# .secrets.baseline se genera con: detect-secrets scan > .secrets.baseline
+# Versionar el baseline permite al equipo auditar qué "secretos" son falsos positivos

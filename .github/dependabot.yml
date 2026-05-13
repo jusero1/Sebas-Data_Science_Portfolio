@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .github/dependabot.yml
+#
+# Dependabot analiza automáticamente los requirements.txt de cada proyecto
+# y abre Pull Requests cuando hay versiones más nuevas (incluyendo parches
+# de seguridad / CVEs).
+#
+# Documentación: https://docs.github.com/en/code-security/dependabot
+# ─────────────────────────────────────────────────────────────────────────────
+
+version: 2
+
+updates:
+  # ── Proyecto 1: Time Series Forecast ───────────────────────────────────────
+  - package-ecosystem: pip
+    directory: /time-series-forecast
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "deps(ts-forecast)"
+
+  # ── Proyecto 2: Computer Vision ─────────────────────────────────────────────
+  - package-ecosystem: pip
+    directory: /computer-vision-classification
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "deps(cv)"
+
+  # ── Proyecto 3: Credit Scoring ───────────────────────────────────────────────
+  - package-ecosystem: pip
+    directory: /credit-scoring-risk
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "deps(credit)"
+
+  # ── GitHub Actions ──────────────────────────────────────────────────────────
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    labels:
+      - "dependencies"
+      - "ci"
+    commit-message:
+      prefix: "ci(actions)"
