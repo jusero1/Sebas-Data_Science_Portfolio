@@ -24,7 +24,7 @@ scikit-learn==1.4.2
 statsmodels==0.14.2
 
 # ── Visualización ─────────────────────────────────────────────────────────────
-matplotlib==3.8.4
+matplotlib==3.10.9
 seaborn==0.13.2
 plotly==5.22.0
 
