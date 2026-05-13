@@ -10,7 +10,7 @@
 
 **NO abras un issue público para reportar vulnerabilidades de seguridad.**
 
-Envía un correo a **zebas.sr@gmail.com** con el asunto `[SECURITY] <descripción breve>` incluyendo:
+Envía un correo a **jssegurarod96@gmail.com** con el asunto `[SECURITY] <descripción breve>` incluyendo:
 
 1. Descripción detallada de la vulnerabilidad.
 2. Pasos para reproducirla (PoC si es posible).

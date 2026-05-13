@@ -25,7 +25,7 @@ RUN pip install --no-cache-dir --user --upgrade pip \
 # ── Stage 2: Runtime ──────────────────────────────────────────────────────────
 FROM python:3.11-slim AS runtime
 
-LABEL maintainer="zebas.sr@gmail.com" \
+LABEL maintainer="jssegurarod96@gmail.com" \
       project="credit-scoring-risk" \
       version="0.1.0"
 

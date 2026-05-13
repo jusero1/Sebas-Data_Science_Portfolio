@@ -161,7 +161,7 @@ docker-compose up --build
 
 ### Reportar una vulnerabilidad
 
-Envía un correo a **zebas.sr@gmail.com** con el asunto `[SECURITY]`.
+Envía un correo a **jssegurarod96@gmail.com** con el asunto `[SECURITY]`.
 **No abras issues públicos** para vulnerabilidades de seguridad.
 
 ---

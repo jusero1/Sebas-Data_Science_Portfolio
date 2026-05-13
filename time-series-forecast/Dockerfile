@@ -29,7 +29,7 @@ RUN pip install --no-cache-dir --user --upgrade pip \
 FROM python:3.11-slim AS runtime
 
 # Metadatos de la imagen
-LABEL maintainer="zebas.sr@gmail.com" \
+LABEL maintainer="jssegurarod96@gmail.com" \
       project="time-series-forecast" \
       version="0.1.0"
 
