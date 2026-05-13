@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  cv-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: cv-pneumonia-api
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./models:/app/models:ro
+    environment:
+      - MODEL_PATH=/app/models/resnet50_finetuned.h5
+      - IMG_SIZE=224
+      - THRESHOLD=0.5
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8001/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 25s
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.13.0
+    container_name: mlflow-cv
+    ports:
+      - "5001:5000"
+    volumes:
+      - mlflow-cv-data:/mlflow
+    command: >
+      mlflow server
+        --host 0.0.0.0
+        --port 5000
+        --default-artifact-root /mlflow/artifacts
+        --backend-store-uri sqlite:////mlflow/mlflow.db
+    restart: unless-stopped
+
+volumes:
+  mlflow-cv-data:

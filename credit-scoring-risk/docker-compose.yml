@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  credit-scoring-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: credit-scoring-api
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./models:/app/models:ro
+    environment:
+      - MODEL_PATH=/app/models/xgboost_best.joblib
+      - PIPELINE_PATH=/app/models/preprocessing_pipeline.joblib
+      - SCALER_PATH=/app/models/clustering_scaler.joblib
+      - KMEANS_PATH=/app/models/kmeans_k4.joblib
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8002/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.13.0
+    container_name: mlflow-credit
+    ports:
+      - "5002:5000"
+    volumes:
+      - mlflow-credit-data:/mlflow
+    command: >
+      mlflow server
+        --host 0.0.0.0
+        --port 5000
+        --default-artifact-root /mlflow/artifacts
+        --backend-store-uri sqlite:////mlflow/mlflow.db
+    restart: unless-stopped
+
+volumes:
+  mlflow-credit-data:
